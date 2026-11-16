@@ -1,0 +1,52 @@
+{
+    "cities": [
+        {
+            "city_id": 1,
+            "city": "Kochi",
+            "state": "Kerala",
+            "country": "India",
+            "latitude": 9.9312,
+            "longitude": 76.2673
+        },
+        {
+            "city_id": 2,
+            "city": "Kottayam",
+            "state": "Kerala",
+            "country": "India",
+            "latitude": 9.5916,
+            "longitude": 76.5222
+        },
+        {
+            "city_id": 3,
+            "city": "Thiruvananthapuram",
+            "state": "Kerala",
+            "country": "India",
+            "latitude": 8.5241,
+            "longitude": 76.9366
+        },
+        {
+            "city_id": 4,
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "country": "India",
+            "latitude": 12.9716,
+            "longitude": 77.5946
+        },
+        {
+            "city_id": 5,
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "country": "India",
+            "latitude": 19.0760,
+            "longitude": 72.8777
+        },
+        {
+            "city_id": 6,
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "country": "India",
+            "latitude": 13.0827,
+            "longitude": 80.2707
+        }
+    ]
+}
