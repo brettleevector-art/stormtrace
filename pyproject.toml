@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stormtrace"
+version = "0.1.0"
+description = "Historical weather data engineering pipeline for six Indian cities"
+requires-python = ">=3.14"
+dependencies = [
+    "requests>=2.32,<3",
+    "pandas>=2.2,<4",
+    "psycopg[binary]>=3.2,<4",
+    "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+include = ["stormtrace*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
