@@ -65,3 +65,23 @@ def extract_all(city_name=None, start_date=None, end_date=None):
             log.error("%s failed: %s", city["city"], exc)
             failed.append((city["city"], str(exc)))
     return succeeded, failed
+
+
+
+
+def extract_plan(plan, end_date, pause_seconds=PAUSE_BETWEEN_CITIES_SECONDS):
+    """Extract a list of (city, start_date) pairs. Returns (succeeded, failed)."""
+    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    log.info("Run %s: %s cities, up to %s", run_id, len(plan), end_date)
+
+    succeeded, failed = [], []
+    for index, (city, start_date) in enumerate(plan):
+        if index > 0:
+            time.sleep(pause_seconds)
+        try:
+            path = extract_city(city, start_date, end_date, run_id)
+            succeeded.append((city["city"], path))
+        except ExtractionError as exc:
+            log.error("%s failed: %s", city["city"], exc)
+            failed.append((city["city"], str(exc)))
+    return succeeded, failed    
