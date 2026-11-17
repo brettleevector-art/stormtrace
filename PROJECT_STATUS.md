@@ -13,9 +13,9 @@ Ubuntu (WSL2) · Python 3.14 · uv · .venv · Antigravity
 ## Completed
 - [x] Phase 1 Foundation
 - [x] Phase 2 Configuration
-- [ ] Phase 3 Extraction
-- [ ] Phase 4 Transformation
-- [ ] Phase 5 Data quality
+- [x] Phase 3 Extraction
+- [x] Phase 4 Transformation
+- [x] Phase 5 Data quality
 - [ ] Phase 6-7 PostgreSQL and loading
 - [ ] Phase 8 Pipeline
 - [ ] Phase 9 SQL views
@@ -30,3 +30,13 @@ Finish Phase 2, merge the pull request,
 
 ## 
 Phase 3 — Extraction (done)
+
+##
+
+Phase 4 — Transformation (done)
+
+##
+Phase 5 — Data quality (done)
+
+
+##
