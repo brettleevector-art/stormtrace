@@ -13,3 +13,11 @@ None so far.
 
 ### Next session
 Phase 3: build the extraction pipeline.
+
+## Session 002 — Phases 3 to 6
+
+- Extraction, transformation and data quality merged.
+- PostgreSQL 18 installed in WSL2 (port 5432); user stormtrace_user and database stormtrace_dw created.
+- Separate Windows PostgreSQL service exists on port 6767; not used by this project.
+- Login test from .env passed.
+
