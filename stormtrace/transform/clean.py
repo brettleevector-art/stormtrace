@@ -5,6 +5,12 @@ from stormtrace.transform.transform import OUTPUT_COLUMNS
 
 NON_NEGATIVE = ["precipitation_mm", "rain_mm", "precipitation_hours", "sunshine_hours"]
 
+CORE_WEATHER_COLUMNS = [
+    "temperature_max", "temperature_min", "temperature_mean",
+    "precipitation_mm", "rain_mm", "weather_code",
+    "wind_speed_max", "wind_direction", "sunshine_hours",
+]
+
 
 def clean(df: pd.DataFrame):
     """Return (clean_df, report). The report counts every fix so nothing is hidden."""
@@ -16,7 +22,12 @@ def clean(df: pd.DataFrame):
     report["invalid_dates_dropped"] = int(df["date"].isna().sum())
     df = df.dropna(subset=["date"])
 
-    # 2. Duplicate city/date: keep the most recently extracted row
+    # 2. Remove records without usable core weather measurements
+    unusable = df[CORE_WEATHER_COLUMNS].isna().all(axis=1)
+    report["unusable_rows_dropped"] = int(unusable.sum())
+    df = df.loc[~unusable]
+
+    # 3. Duplicate city/date: keep the most recently extracted usable row
     df = df.sort_values(["city_id", "date", "extracted_at"])
     duplicated = df.duplicated(["city_id", "date"], keep="last")
     report["duplicates_removed"] = int(duplicated.sum())
